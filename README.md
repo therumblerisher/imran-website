@@ -1,20 +1,36 @@
 # imran-website
 
-Personal site for **Imran Haqeem**.
+Minimal personal site for **Imran Haqeem**.
 
-Current positioning:
-- Tagline: **Building stuff in Kuala Lumpur. Writing about things im learning**
-- X: **@therumblerisher**
-- Email: **imranhq957@gmail.com**
-- Default presentation: **dark mode first**
+## Current direction
 
-## Repo structure
+This repo is no longer a portfolio-template site.
+It is a quiet editorial homepage centered on:
+- writing
+- projects
+- about
 
-- `index.html` — single-page site markup
-- `assets/css/styles.css` — visual system and section styles
-- `assets/js/main.js` — navigation, theme toggle, footer year
-- `assets/img/` — images used by the site
-- `CNAME` — custom domain (`imranhaqeem.xyz`)
+Primary visual reference:
+- `design/reference/reference-homepage.jpg`
+
+Primary written brief:
+- `design/site-direction.md`
+
+## Canonical profile info
+
+- Name: `Imran Haqeem`
+- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of malaysian daily life.`
+- X: `https://x.com/therumblerisher`
+- Email: `imranhq957@gmail.com`
+
+## Key files
+
+- `index.html` — homepage markup
+- `assets/css/styles.css` — editorial layout + theme styling
+- `assets/js/main.js` — theme toggle logic
+- `design/reference/reference-homepage.jpg` — design reference image
+- `design/site-direction.md` — product/design brief for future updates
+- `CNAME` — custom domain
 
 ## Local preview
 
@@ -25,41 +41,34 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-## Content update rules
+## Update rules
 
-1. **Keep hero, contact, and footer consistent**
-   - X link should point to `https://x.com/therumblerisher`
-   - Email should be `imranhq957@gmail.com`
-   - Tagline should stay aligned with the current builder/writer positioning unless explicitly changed
+1. **Stay close to the reference direction**
+   - Minimal
+   - Editorial
+   - Calm typography
+   - No portfolio-template UI
+   - No sliders, cards, or flashy landing-page patterns unless explicitly requested
 
-2. **Writing section is draft-first**
-   - New post ideas should start as draft cards in the `#writing` section
-   - Keep the `Draft` badge until Imran explicitly wants something published/polished
-   - Prefer short working titles and 1-2 sentence summaries
+2. **Writing list is the core of the homepage**
+   - Add newest entries at the top
+   - Keep titles concise
+   - Keep dates in `Mon YYYY` format
+   - Entries can remain drafts/in-progress; do not imply they are fully published essays unless asked
 
-3. **Dark mode is not optional**
-   - Default state should remain dark
-   - Any visual refresh should be checked in dark mode first
-   - Do not regress to light-only styling
+3. **Keep structure simple**
+   - Top-level IA is: `writing`, `projects`, `about`
+   - Footer should keep the real email and X handle
 
-4. **Keep the site lightweight**
-   - No framework migration unless explicitly requested
-   - Prefer simple HTML/CSS/JS edits over adding tooling
+4. **Dark mode matters**
+   - Theme support should stay polished in both light and dark
+   - Do not sacrifice readability or the minimalist feel
 
-## Publishing workflow
-
-This site is a static site. After edits:
+## Deploy
 
 ```bash
 git status
-# review changes
 git add .
-git commit -m "Update personal site"
-git push
+git commit -m "Update imran website"
+git push origin main
 ```
-
-If you make copy changes, sanity-check:
-- hero section
-- writing draft cards
-- contact links
-- footer links/socials
