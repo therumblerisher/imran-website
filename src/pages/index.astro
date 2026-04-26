@@ -62,31 +62,15 @@ const thoughts = [
     </p>
 
     <nav class="section-nav" aria-label="Section navigation">
-      <a href="#projects">Projects</a>
-      <span aria-hidden="true">•</span>
       <a href="#writing">Writing</a>
       <span aria-hidden="true">•</span>
-      <a href="#elsewhere">Elsewhere</a>
+      <a href="#projects">Projects</a>
       <span aria-hidden="true">•</span>
       <a href="#thinking">Currently thinking</a>
+      <span aria-hidden="true">•</span>
+      <a href="#elsewhere">Elsewhere</a>
     </nav>
   </header>
-
-  <section class="section" id="projects" aria-labelledby="projects-title">
-    <div class="section-header">
-      <h2 class="section-title" id="projects-title">Projects</h2>
-      <p class="section-description">A few things I’m building and exploring.</p>
-    </div>
-
-    <ul class="thinking-list">
-      {projects.map((project) => (
-        <li class="thinking-item">
-          <span class="elsewhere-label">{project.name}</span>
-          <span>{project.description}</span>
-        </li>
-      ))}
-    </ul>
-  </section>
 
   <section class="section" id="writing" aria-labelledby="writing-title">
     <div class="section-header">
@@ -107,19 +91,17 @@ const thoughts = [
     </ol>
   </section>
 
-  <section class="section" id="elsewhere" aria-labelledby="elsewhere-title">
+  <section class="section" id="projects" aria-labelledby="projects-title">
     <div class="section-header">
-      <h2 class="section-title" id="elsewhere-title">Elsewhere</h2>
-      <p class="section-description">A few places I live online.</p>
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <p class="section-description">A few things I’m building and exploring.</p>
     </div>
 
-    <ul class="elsewhere-list">
-      {elsewhere.map((item) => (
-        <li class="elsewhere-item">
-          <span class="elsewhere-label">{item.label}</span>
-          <a class="elsewhere-value" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
-            {item.value}
-          </a>
+    <ul class="thinking-list">
+      {projects.map((project) => (
+        <li class="thinking-item">
+          <span class="elsewhere-label">{project.name}</span>
+          <span>{project.description}</span>
         </li>
       ))}
     </ul>
@@ -136,6 +118,24 @@ const thoughts = [
         <li class="thinking-item">
           <span class="elsewhere-label">Note</span>
           <span>{thought}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" id="elsewhere" aria-labelledby="elsewhere-title">
+    <div class="section-header">
+      <h2 class="section-title" id="elsewhere-title">Elsewhere</h2>
+      <p class="section-description">A few places I live online.</p>
+    </div>
+
+    <ul class="elsewhere-list">
+      {elsewhere.map((item) => (
+        <li class="elsewhere-item">
+          <span class="elsewhere-label">{item.label}</span>
+          <a class="elsewhere-value" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+            {item.value}
+          </a>
         </li>
       ))}
     </ul>
