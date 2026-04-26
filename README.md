@@ -53,6 +53,24 @@ npm run dev
 
 Then open the local Astro URL shown in the terminal.
 
+## Deploy
+
+`main` is now deployed through GitHub Pages Actions.
+
+Typical flow:
+
+```bash
+git checkout main
+git pull
+# make changes
+npm run verify
+git add .
+git commit -m "your change"
+git push origin main
+```
+
+That push triggers `.github/workflows/deploy.yml` and publishes the latest Astro build to `imranhaqeem.xyz`.
+
 ## Writing workflow
 
 Add a new essay by creating a markdown file in `src/content/writing/`.

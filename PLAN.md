@@ -24,7 +24,7 @@ If you are an agent working in this repo:
 | P2 | Writing collection + routes | done | Markdown essays render on `/writing` and `/writing/[slug]` |
 | P3 | Pixel-close homepage refinement | pending | Homepage spacing/type/layout feels much closer to `design/reference/reference-homepage.jpg` |
 | P4 | Real content pass | pending | Final bio, intro, elsewhere links, footer, and initial essay metadata confirmed |
-| P5 | GitHub Pages deploy via Actions | pending | Pages builds from GitHub Actions with `CNAME` preserved |
+| P5 | GitHub Pages deploy via Actions | done | Pages builds from GitHub Actions with `CNAME` preserved |
 | P6 | Optional publishing polish | pending | RSS, sitemap, stronger OG/share image, final 404 polish |
 
 ## Agent-ops setup
@@ -34,7 +34,7 @@ If you are an agent working in this repo:
 | A1 | Repo instructions for agents | done | `AGENTS.md`, `README.md`, and `docs/agent-workflow.md` define workflows |
 | A2 | Verification command | done | Use `npm run verify` before handing work back |
 | A3 | CI verification workflow | done | `.github/workflows/verify.yml` runs install + verify on pushes/PRs |
-| A4 | Deploy workflow | pending | Do only once cutover strategy is approved |
+| A4 | Deploy workflow | done | `.github/workflows/deploy.yml` publishes the Astro build to GitHub Pages on pushes to `main` |
 
 ## Content backlog
 
