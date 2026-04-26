@@ -30,10 +30,25 @@ const elsewhere = [
   },
 ];
 
+const projects = [
+  {
+    name: 'Kira',
+    description: 'A receipt-splitting app built to make shared expenses less annoying.',
+  },
+  {
+    name: 'TaxFind',
+    description: 'A Malaysian tax-deduction finder built to make claims clearer and easier.',
+  },
+  {
+    name: 'Panora',
+    description: 'An AI-first notebook for agentic meeting notes, conversations, and thinking.',
+  },
+];
+
 const thoughts = [
-  'How pricing shapes what Malaysians perceive as fair, normal, and sustainable.',
-  'Why city life reveals incentives more clearly than most business writing ever will.',
-  'How to build internet products that feel quietly useful before they feel impressive.',
+  'How software agents change the way small teams build and operate.',
+  'Why the economics of daily life in Malaysia shapes behavior more than people admit.',
+  'What makes an internet product quietly useful enough to become part of someone\'s routine.',
 ];
 ---
 
@@ -41,13 +56,14 @@ const thoughts = [
   <header class="home-header" id="top">
     <p class="eyebrow">Imran Haqeem</p>
     <h1 class="site-title">Imran Haqeem</h1>
-    <p class="lede">Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.</p>
+    <p class="lede">Building internet products in Kuala Lumpur. Writing about software and the economics of everyday life in Malaysia.</p>
     <p class="intro">
-      This is a small home for essays, drafts, and working notes on everyday incentives,
-      products, and the strange economics hiding in ordinary life.
+      Essays and working notes on what I’m learning, building, and trying to understand.
     </p>
 
     <nav class="section-nav" aria-label="Section navigation">
+      <a href="#projects">Projects</a>
+      <span aria-hidden="true">•</span>
       <a href="#writing">Writing</a>
       <span aria-hidden="true">•</span>
       <a href="#elsewhere">Elsewhere</a>
@@ -55,6 +71,22 @@ const thoughts = [
       <a href="#thinking">Currently thinking</a>
     </nav>
   </header>
+
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <div class="section-header">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+      <p class="section-description">A few things I’m building and exploring.</p>
+    </div>
+
+    <ul class="thinking-list">
+      {projects.map((project) => (
+        <li class="thinking-item">
+          <span class="elsewhere-label">{project.name}</span>
+          <span>{project.description}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
 
   <section class="section" id="writing" aria-labelledby="writing-title">
     <div class="section-header">
