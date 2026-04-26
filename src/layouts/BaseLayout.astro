@@ -12,6 +12,50 @@ const {
 } = Astro.props;
 
 const pageTitle = title === 'Imran Haqeem' ? title : `${title} — Imran Haqeem`;
+
+const themeBootScript = `(function(){
+  try {
+    var stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      document.documentElement.dataset.theme = stored;
+    }
+  } catch (error) {}
+})();`;
+
+const themeToggleScript = `(function(){
+  var button = document.querySelector('[data-theme-toggle]');
+  if (!button) return;
+
+  var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function currentTheme() {
+    return document.documentElement.dataset.theme || (media.matches ? 'dark' : 'light');
+  }
+
+  function syncButton() {
+    var theme = currentTheme();
+    var next = theme === 'dark' ? 'light' : 'dark';
+    button.textContent = next === 'dark' ? 'Dark mode' : 'Light mode';
+    button.setAttribute('aria-label', 'Switch to ' + next + ' mode');
+  }
+
+  button.addEventListener('click', function () {
+    var next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch (error) {}
+    syncButton();
+  });
+
+  if (media.addEventListener) {
+    media.addEventListener('change', syncButton);
+  } else if (media.addListener) {
+    media.addListener(syncButton);
+  }
+
+  syncButton();
+})();`;
 ---
 
 <!doctype html>
@@ -33,10 +77,15 @@ const pageTitle = title === 'Imran Haqeem' ? title : `${title} — Imran Haqeem`
     <meta name="twitter:image" content={new URL('/design-reference.jpg', Astro.site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
+    <script is:inline set:html={themeBootScript}></script>
   </head>
   <body>
     <main class="page-shell">
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
+      </div>
       <slot />
     </main>
+    <script is:inline set:html={themeToggleScript}></script>
   </body>
 </html>
