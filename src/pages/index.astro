@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const writing = (await getCollection('writing')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
+
+const elsewhere = [
+  {
+    label: 'X',
+    value: '@therumblerisher',
+    href: 'https://x.com/therumblerisher',
+  },
+  {
+    label: 'GitHub',
+    value: 'therumblerisher',
+    href: 'https://github.com/therumblerisher',
+  },
+  {
+    label: 'Email',
+    value: 'imranhq957@gmail.com',
+    href: 'mailto:imranhq957@gmail.com',
+  },
+];
+
+const thoughts = [
+  'How pricing shapes what Malaysians perceive as fair, normal, and sustainable.',
+  'Why city life reveals incentives more clearly than most business writing ever will.',
+  'How to build internet products that feel quietly useful before they feel impressive.',
+];
+---
+
+<BaseLayout>
+  <header class="home-header" id="top">
+    <p class="eyebrow">Imran Haqeem</p>
+    <h1 class="site-title">Imran Haqeem</h1>
+    <p class="lede">Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.</p>
+    <p class="intro">
+      This is a small home for essays, drafts, and working notes on everyday incentives,
+      products, and the strange economics hiding in ordinary life.
+    </p>
+
+    <nav class="section-nav" aria-label="Section navigation">
+      <a href="#writing">Writing</a>
+      <span aria-hidden="true">•</span>
+      <a href="#elsewhere">Elsewhere</a>
+      <span aria-hidden="true">•</span>
+      <a href="#thinking">Currently thinking</a>
+    </nav>
+  </header>
+
+  <section class="section" id="writing" aria-labelledby="writing-title">
+    <div class="section-header">
+      <h2 class="section-title" id="writing-title">Writing</h2>
+      <a class="section-link" href="/writing/">Full archive</a>
+    </div>
+
+    <ol class="writing-list">
+      {writing.map((entry) => (
+        <li class="writing-item">
+          <a class="writing-link" href={`/writing/${entry.slug}/`}>
+            {entry.data.title}
+            {entry.data.state === 'draft' && <span class="pill">Draft</span>}
+          </a>
+          <span class="writing-meta">{formatDate(entry.data.date)}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section" id="elsewhere" aria-labelledby="elsewhere-title">
+    <div class="section-header">
+      <h2 class="section-title" id="elsewhere-title">Elsewhere</h2>
+      <p class="section-description">A few places I live online.</p>
+    </div>
+
+    <ul class="elsewhere-list">
+      {elsewhere.map((item) => (
+        <li class="elsewhere-item">
+          <span class="elsewhere-label">{item.label}</span>
+          <a class="elsewhere-value" href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+            {item.value}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" id="thinking" aria-labelledby="thinking-title">
+    <div class="section-header">
+      <h2 class="section-title" id="thinking-title">Currently thinking</h2>
+      <p class="section-description">Questions worth keeping in view.</p>
+    </div>
+
+    <ul class="thinking-list">
+      {thoughts.map((thought) => (
+        <li class="thinking-item">
+          <span class="elsewhere-label">Note</span>
+          <span>{thought}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <p>
+      Reach me at <a href="mailto:imranhq957@gmail.com">imranhq957@gmail.com</a> or on
+      <a href="https://x.com/therumblerisher" target="_blank" rel="noreferrer">X</a>.
+    </p>
+  </footer>
+</BaseLayout>

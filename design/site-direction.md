@@ -1,78 +1,89 @@
-# Fresh site direction
+# Astro rebuild direction
 
-Use `design/reference/reference-homepage.jpg` as the **primary visual reference** for the redesign.
+Use `design/reference/reference-homepage.jpg` as the **primary visual reference**.
 
 ## Goal
 
-Throw away the current portfolio-template direction and rebuild the site from scratch into a minimal personal homepage that feels like a calm writer-builder website.
+Rebuild the site into a minimal Astro-based personal website that feels like a calm writer-builder homepage.
 
-## Reference image: what to follow closely
+The homepage should be derived from the design image first, then extended into a lightweight writing system.
 
-- Minimal single-column layout with generous whitespace
-- Large name at the top: `Imran Haqeem`
-- Short tagline under the name
-- Tiny text nav under the tagline: `writing • projects • about`
-- Main body is a simple writing list with titles on the left and dates on the right
-- Footer/contact line at the bottom with email + X handle
-- Elegant editorial feel; not startup landing page, not card-heavy, not portfolio-template-y
-- Typography should feel restrained, literary, and timeless
+## Visual direction
+
+Follow the reference image closely:
+
+- minimal single-column layout
+- generous whitespace
+- large name at the top
+- short introduction beneath the name
+- elegant serif-forward typography
+- cream-toned light mode with strong dark-mode support
+- quiet editorial feeling, not a portfolio-template look
+
+## Initial homepage structure
+
+Use this structure as the baseline:
+
+- name
+- intro
+- writing
+- elsewhere
+- currently thinking
+- footer/contact
 
 ## Canonical identity/contact info
 
-Use these real details instead of the placeholders in the mock:
+Use these real details:
+
 - Name: `Imran Haqeem`
+- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.`
 - X handle: `therumblerisher`
 - X URL: `https://x.com/therumblerisher`
 - Email: `imranhq957@gmail.com`
+- Domain: `imranhaqeem.xyz`
 
-## Editorial direction
+## Stack direction
 
-The mock implies a more specific writing direction than the previous site.
-Base the homepage around:
-- building in Kuala Lumpur
-- writing about the economics of Malaysian daily life
-- thoughtful essays / notes / observations
+Use:
 
-Use this tagline for the new version:
+- Astro
+- markdown-backed writing content
+- static output for GitHub Pages
+- minimal or zero client-side JavaScript by default
 
-`Building stuff in Kuala Lumpur. Writing about the economics of malaysian daily life.`
+## Writing workflow
 
-## Initial writing list to seed the page
+The point of Astro here is future simplicity.
+After the content layer is in place, adding an essay should mean creating one markdown file in:
 
-Use these as homepage entries, styled like the reference image:
-- `Why kopi is still underpriced` — `Apr 2026`
-- `The hidden cost of Grab convenience` — `Mar 2026`
-- `What rent teaches you about a city` — `Feb 2026`
-- `Mamak economics: margins, mentality, mastery` — `Jan 2026`
-- `The real reason things feel expensive` — `Dec 2025`
-- `Notes on EPF, compound returns, and patience` — `Nov 2025`
-- `Subsidies we love, subsidies we don’t see` — `Oct 2025`
-- `The economics of weddings in Malaysia` — `Sep 2025`
-- `Building wealth on a Malaysian salary` — `Aug 2025`
-- `Small country, open economy: a survival guide` — `Jul 2025`
+- `src/content/writing/`
 
-These can be displayed as draft-style or list entries for now, but the site should visually resemble the reference more than the previous implementation.
+Each essay should include frontmatter like:
 
-## Dark mode
+- `title`
+- `description`
+- `date`
+- `state`
 
-The previous request emphasized dark mode. For this redesign:
-- preserve strong dark-mode support
-- if possible, make the site feel excellent in both light and dark
-- but prioritize the reference image's minimalist structure and typography over the old template
-- avoid flashy gradients, cards, sliders, and portfolio-theme UI
+## Initial content seed
 
-## Implementation rules
+Start with a few believable draft essays such as:
 
-- Keep the repo static: HTML/CSS/JS only
-- Preserve `.git` and `CNAME`
-- It is okay to replace `index.html`, `assets/css/styles.css`, and `assets/js/main.js` wholesale
-- Remove old-template sections if they no longer fit the new direction
-- Keep repo instructions clear for future agent updates
+- `Why kopi is still underpriced`
+- `The hidden cost of Grab convenience`
+- `What rent teaches you about a city`
+
+## Implementation notes
+
+- Keep `public/CNAME`
+- Keep the design reference image in-repo
+- Prefer simple, readable CSS over heavy abstractions
+- Do not reintroduce sliders, portfolio cards, or startup-style UI
+- Build for easy GitHub Pages deployment
 
 ## Success criteria
 
-- The live site no longer looks like the old portfolio template
-- The homepage clearly resembles the reference image's direction
-- The information architecture is simple: writing, projects, about
-- The page feels intentional, minimal, and editorial
-- The reference image remains in-repo for future agents
+- The site clearly resembles the reference image
+- The implementation is Astro-based, not a raw static template
+- Writing updates are markdown-first and easy
+- The homepage feels calm, restrained, and intentional

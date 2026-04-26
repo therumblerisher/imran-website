@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const writing = (await getCollection('writing')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en', {
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+---
+
+<BaseLayout
+  title="Writing"
+  description="Drafts, essays, and working notes by Imran Haqeem."
+>
+  <a class="back-link" href="/">← Home</a>
+
+  <header class="entry-header">
+    <h1 class="archive-title">Writing</h1>
+    <p class="archive-intro">
+      Essays, drafts, and half-formed notes on products, incentives, and everyday economics.
+    </p>
+  </header>
+
+  <section class="section" aria-labelledby="archive-list-title">
+    <div class="section-header">
+      <h2 class="section-title" id="archive-list-title">Archive</h2>
+      <p class="section-description">Newest first.</p>
+    </div>
+
+    <ol class="writing-list">
+      {writing.map((entry) => (
+        <li class="writing-item">
+          <a class="writing-link" href={`/writing/${entry.slug}/`}>
+            {entry.data.title}
+            {entry.data.state === 'draft' && <span class="pill">Draft</span>}
+          </a>
+          <span class="writing-meta">{formatDate(entry.data.date)}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>

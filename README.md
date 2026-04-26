@@ -1,74 +1,93 @@
 # imran-website
 
-Minimal personal site for **Imran Haqeem**.
+Personal site for **Imran Haqeem**.
 
 ## Current direction
 
-This repo is no longer a portfolio-template site.
-It is a quiet editorial homepage centered on:
-- writing
-- projects
-- about
+This repo is being rebuilt as an **Astro** site based on the design image in:
 
-Primary visual reference:
 - `design/reference/reference-homepage.jpg`
 
-Primary written brief:
-- `design/site-direction.md`
+The goal is a quiet editorial homepage with lightweight writing workflows:
+
+- a simple homepage
+- a writing archive
+- markdown-backed essays
+- static output for GitHub Pages
 
 ## Canonical profile info
 
 - Name: `Imran Haqeem`
-- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of malaysian daily life.`
+- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.`
 - X: `https://x.com/therumblerisher`
 - Email: `imranhq957@gmail.com`
+- Domain: `imranhaqeem.xyz`
+
+## Stack
+
+- Astro
+- Markdown content collection for writing
+- Static build output
+- GitHub Pages-compatible deployment
 
 ## Key files
 
-- `index.html` — homepage markup
-- `assets/css/styles.css` — editorial layout + theme styling
-- `assets/js/main.js` — theme toggle logic
-- `design/reference/reference-homepage.jpg` — design reference image
-- `design/site-direction.md` — product/design brief for future updates
-- `CNAME` — custom domain
+- `src/pages/index.astro` — homepage
+- `src/pages/writing/index.astro` — writing archive
+- `src/pages/writing/[slug].astro` — essay pages
+- `src/content/writing/*.md` — essays/drafts
+- `src/styles/global.css` — global editorial styling
+- `design/reference/reference-homepage.jpg` — visual reference
+- `design/site-direction.md` — implementation brief
+- `PLAN.md` — active roadmap and backlog
+- `docs/agent-workflow.md` — operational instructions for agents
+- `public/CNAME` — custom domain
 
-## Local preview
+## Local development
 
 ```bash
 cd /Users/imranhaqeem/workspace/repos/imran-website
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Then open the local Astro URL shown in the terminal.
 
-## Update rules
+## Writing workflow
 
-1. **Stay close to the reference direction**
-   - Minimal
-   - Editorial
-   - Calm typography
-   - No portfolio-template UI
-   - No sliders, cards, or flashy landing-page patterns unless explicitly requested
+Add a new essay by creating a markdown file in `src/content/writing/`.
+You can also start from `docs/templates/essay-template.md`:
 
-2. **Writing list is the core of the homepage**
-   - Add newest entries at the top
-   - Keep titles concise
-   - Keep dates in `Mon YYYY` format
-   - Entries can remain drafts/in-progress; do not imply they are fully published essays unless asked
+```md
+---
+title: Why kopi is still underpriced
+description: Draft note on value and routine.
+date: 2026-04-26
+state: draft
+---
 
-3. **Keep structure simple**
-   - Top-level IA is: `writing`, `projects`, `about`
-   - Footer should keep the real email and X handle
+Body goes here.
+```
 
-4. **Dark mode matters**
-   - Theme support should stay polished in both light and dark
-   - Do not sacrifice readability or the minimalist feel
-
-## Deploy
+Then run:
 
 ```bash
-git status
-git add .
-git commit -m "Update imran website"
-git push origin main
+npm run verify
 ```
+
+Then commit and push.
+
+## Agent workflow
+
+For future agentic work, use:
+- `AGENTS.md` for repo rules
+- `PLAN.md` for roadmap status and open tasks
+- `docs/agent-workflow.md` for common task recipes
+
+## Notes for future updates
+
+1. Stay visually close to the reference image.
+2. Keep the site quiet, serif-forward, and editorial.
+3. Avoid reintroducing portfolio-template UI.
+4. Prefer zero client-side JavaScript unless there is a strong reason.
+5. Preserve the custom domain setup.

@@ -2,78 +2,96 @@
 
 ## Mission
 
-Maintain this repo as a minimal editorial homepage for Imran Haqeem.
+Maintain this repo as a minimal Astro-based personal website for Imran Haqeem.
 
-This is **not** a corporate portfolio site.
-It should feel like a writer-builder's corner of the internet.
+This is **not** a startup landing page or portfolio template.
+It should feel like a calm writer-builder website.
 
 ## Source of truth
 
 Always check these first before making visual or structural changes:
 - `design/reference/reference-homepage.jpg`
 - `design/site-direction.md`
+- `PLAN.md`
+- `docs/agent-workflow.md`
 
 ## Canonical identity
 
 - Name: `Imran Haqeem`
-- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of malaysian daily life.`
+- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.`
 - X URL: `https://x.com/therumblerisher`
 - Email: `imranhq957@gmail.com`
+- Domain: `imranhaqeem.xyz`
+
+## Tech stack
+
+- Astro
+- Markdown writing content in `src/content/writing/`
+- Static output for GitHub Pages
 
 ## Site structure
 
-Expected information architecture:
-- `writing`
-- `projects`
-- `about`
+Current primary routes:
+- `/`
+- `/writing`
+- `/writing/[slug]`
 
 Core files:
-- `index.html`
-- `assets/css/styles.css`
-- `assets/js/main.js`
+- `src/pages/index.astro`
+- `src/pages/writing/index.astro`
+- `src/pages/writing/[slug].astro`
+- `src/styles/global.css`
+- `src/content/writing/*.md`
 
 ## Editing rules
 
 1. **Follow the reference image closely**
-   - Generous whitespace
-   - Quiet serif-forward typography
-   - Simple list-based layout
-   - Minimal navigation
+   - generous whitespace
+   - quiet serif-forward typography
+   - simple list-based layout
+   - minimal navigation
 
 2. **Do not reintroduce the old template**
-   - No portfolio grids
-   - No carousels/sliders
-   - No heavy section chrome
-   - No startup landing page styling
+   - no portfolio grids
+   - no carousels/sliders
+   - no heavy section chrome
+   - no flashy landing-page styling
 
-3. **Writing is draft-friendly**
-   - Homepage writing entries may be drafts or stubs
-   - Keep the list clean and believable
-   - Add new entries to the top in reverse-chronological order
+3. **Writing should stay easy to update**
+   - add essays as markdown files
+   - keep dates accurate
+   - drafts are allowed and can be visibly marked
 
-4. **Projects should stay concise**
-   - Short title
-   - One-sentence description
-   - Optional outbound link
+4. **Keep client-side JavaScript minimal**
+   - prefer static rendering
+   - only add JS when the UX clearly needs it
 
-5. **Keep dark mode intentional**
-   - Support both light and dark well
-   - Do not add harsh colors or clutter
+5. **Preserve deploy-critical files**
+   - `public/CNAME`
+   - domain assumptions in config
 
 ## Safe-update checklist
 
 After edits, verify:
 - the page still feels close to `design/reference/reference-homepage.jpg`
-- writing list order still makes sense
-- footer uses the correct real contact info
-- theme toggle still works
-- `CNAME` remains untouched
+- the homepage remains clean and readable on mobile
+- writing links build correctly
+- contact info is still correct
+- `npm run verify` succeeds
+- `PLAN.md` reflects any meaningful roadmap/status change
 
-## If you need to make bigger changes
+## Common agent tasks
 
-If the redesign direction changes materially, update:
-- `design/site-direction.md`
+- add a new draft essay in `src/content/writing/`
+- refine homepage copy in `src/pages/index.astro`
+- adjust editorial styling in `src/styles/global.css`
+- update roadmap status in `PLAN.md`
+- follow the detailed playbook in `docs/agent-workflow.md`
+
+## If the direction changes materially
+
+Update these files together so future agents inherit the right context:
 - `README.md`
+- `design/site-direction.md`
+- `PLAN.md`
 - this file
-
-before or alongside the implementation so future agents inherit the correct context.
