@@ -23,7 +23,7 @@ If you are an agent working in this repo:
 | P1 | Astro scaffold + first-pass homepage | done | Astro project boots locally, custom domain preserved, homepage exists in Astro |
 | P2 | Writing collection + routes | done | Markdown essays render on `/writing` and `/writing/[slug]` |
 | P3 | Pixel-close homepage refinement | pending | Homepage spacing/type/layout feels much closer to `design/reference/reference-homepage.jpg` |
-| P4 | Real content pass | pending | Final bio, intro, elsewhere links, footer, and initial essay metadata confirmed |
+| P4 | Real content pass | in progress | Homepage bio, projects, links, footer, and public writing state are truthful enough for social links. Final first essay still pending. |
 | P5 | GitHub Pages deploy via Actions | done | Pages builds from GitHub Actions with `CNAME` preserved |
 | P6 | Optional publishing polish | pending | RSS, sitemap, stronger OG/share image, final 404 polish |
 
@@ -40,11 +40,12 @@ If you are an agent working in this repo:
 
 ### High-priority
 - tighten the homepage so it matches the design reference more closely
-- confirm the exact intro copy and whether the current tagline is final
+- confirm whether the updated intro copy and tagline feel like Imran
 - confirm whether `Elsewhere` should include anything beyond X, GitHub, and email
 - decide whether `Projects` and `About` deserve dedicated routes later or stay implicit for now
 
 ### Writing backlog
+- turn the minimum participation income draft into the first published essay
 - expand `Why kopi is still underpriced`
 - expand `The hidden cost of Grab convenience`
 - expand `What rent teaches you about a city`

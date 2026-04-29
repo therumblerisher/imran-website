@@ -36,7 +36,7 @@ Use this structure as the baseline:
 Use these real details:
 
 - Name: `Imran Haqeem`
-- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.`
+- Tagline: `I build software products and write about the economics of everyday life in Malaysia.`
 - X handle: `therumblerisher`
 - X URL: `https://x.com/therumblerisher`
 - Email: `imranhq957@gmail.com`

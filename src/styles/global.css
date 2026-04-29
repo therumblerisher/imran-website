@@ -189,9 +189,14 @@ img {
 }
 
 .section-link,
-.section-description {
+.section-description,
+.empty-note {
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.empty-note {
+  margin: 0;
 }
 
 .section-link {

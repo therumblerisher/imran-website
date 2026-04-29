@@ -3,7 +3,9 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const writing = await getCollection('writing');
+  const writing = (await getCollection('writing')).filter(
+    (entry) => entry.data.state === 'published',
+  );
 
   return writing.map((entry) => ({
     params: { slug: entry.slug },
@@ -30,7 +32,7 @@ const formattedDate = new Intl.DateTimeFormat('en', {
       {entry.data.description && <p class="entry-intro">{entry.data.description}</p>}
       <div class="entry-meta">
         <span>{formattedDate}</span>
-        <span>{entry.data.state === 'draft' ? 'Draft' : 'Published'}</span>
+        <span>published</span>
       </div>
     </header>
 

@@ -18,7 +18,7 @@ Always check these first before making visual or structural changes:
 ## Canonical identity
 
 - Name: `Imran Haqeem`
-- Tagline: `Building stuff in Kuala Lumpur. Writing about the economics of Malaysian daily life.`
+- Tagline: `I build software products and write about the economics of everyday life in Malaysia.`
 - X URL: `https://x.com/therumblerisher`
 - Email: `imranhq957@gmail.com`
 - Domain: `imranhaqeem.xyz`

@@ -2,9 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const writing = (await getCollection('writing')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const writing = (await getCollection('writing'))
+  .filter((entry) => entry.data.state === 'published')
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat('en', {
@@ -32,23 +32,27 @@ const elsewhere = [
 
 const projects = [
   {
-    name: 'Kira',
-    description: 'A receipt-splitting app built to make shared expenses less annoying.',
+    name: 'Keystone Lab',
+    description: 'Product work in Singapore, building software that should turn into revenue, not just demos.',
   },
   {
-    name: 'TaxFind',
-    description: 'A Malaysian tax-deduction finder built to make claims clearer and easier.',
+    name: 'Entropic Labs',
+    description: 'My personal product studio for small internet products, experiments, and bespoke builds.',
+  },
+  {
+    name: 'Kira',
+    description: 'Receipt splitting for group meals. Scan a receipt, share a link, let friends claim their items.',
   },
   {
     name: 'Panora',
-    description: 'An AI-first notebook for agentic meeting notes, conversations, and thinking.',
+    description: 'An AI notebook for meetings, conversations, and the messy middle of thinking with agents.',
   },
 ];
 
 const thoughts = [
-  'How software agents change the way small teams build and operate.',
-  'Why the economics of daily life in Malaysia shapes behavior more than people admit.',
-  'What makes an internet product quietly useful enough to become part of someone\'s routine.',
+  'What it actually costs to participate in modern KL life, not just survive it.',
+  'How to close the gap between building good products and getting people to care.',
+  'What small teams can realistically delegate to AI agents without creating more work.',
 ];
 ---
 
@@ -56,9 +60,9 @@ const thoughts = [
   <header class="home-header" id="top">
     <p class="eyebrow">Imran Haqeem</p>
     <h1 class="site-title">Imran Haqeem</h1>
-    <p class="lede">Building internet products in Kuala Lumpur. Writing about software and the economics of everyday life in Malaysia.</p>
+    <p class="lede">I build software products and write about the economics of everyday life in Malaysia.</p>
     <p class="intro">
-      Essays and working notes on what I’m learning, building, and trying to understand.
+      I work on product at Keystone Lab, build my own things under Entropic Labs, and use this site as the public notebook for what I’m learning along the way.
     </p>
 
     <nav class="section-nav" aria-label="Section navigation">
@@ -78,23 +82,26 @@ const thoughts = [
       <a class="section-link" href="/writing/">Full archive</a>
     </div>
 
-    <ol class="writing-list">
-      {writing.map((entry) => (
-        <li class="writing-item">
-          <a class="writing-link" href={`/writing/${entry.slug}/`}>
-            {entry.data.title}
-            {entry.data.state === 'draft' && <span class="pill">Draft</span>}
-          </a>
-          <span class="writing-meta">{formatDate(entry.data.date)}</span>
-        </li>
-      ))}
-    </ol>
+    {writing.length > 0 ? (
+      <ol class="writing-list">
+        {writing.map((entry) => (
+          <li class="writing-item">
+            <a class="writing-link" href={`/writing/${entry.slug}/`}>
+              {entry.data.title}
+            </a>
+            <span class="writing-meta">{formatDate(entry.data.date)}</span>
+          </li>
+        ))}
+      </ol>
+    ) : (
+      <p class="empty-note">First essay coming soon. Probably something unreasonably specific about money, taste, and daily life in Malaysia.</p>
+    )}
   </section>
 
   <section class="section" id="projects" aria-labelledby="projects-title">
     <div class="section-header">
       <h2 class="section-title" id="projects-title">Projects</h2>
-      <p class="section-description">A few things I’m building and exploring.</p>
+      <p class="section-description">Selected work and current experiments.</p>
     </div>
 
     <ul class="thinking-list">
