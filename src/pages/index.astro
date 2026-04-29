@@ -41,7 +41,13 @@ const projects = [
   },
   {
     name: 'Kira',
+    href: 'https://trykira.xyz',
     description: 'Receipt splitting for group meals. Scan a receipt, share a link, let friends claim their items.',
+  },
+  {
+    name: 'TaxFind',
+    href: 'https://tax-find.vercel.app',
+    description: 'A Malaysian tax helper for finding deductions and keeping receipts audit-ready.',
   },
   {
     name: 'Panora',
@@ -107,7 +113,11 @@ const thoughts = [
     <ul class="thinking-list">
       {projects.map((project) => (
         <li class="thinking-item">
-          <span class="elsewhere-label">{project.name}</span>
+          {project.href ? (
+            <a class="elsewhere-label" href={project.href} target="_blank" rel="noreferrer">{project.name}</a>
+          ) : (
+            <span class="elsewhere-label">{project.name}</span>
+          )}
           <span>{project.description}</span>
         </li>
       ))}
