@@ -30,31 +30,61 @@ const elsewhere = [
   },
 ];
 
-const projects = [
+type ProjectChild = {
+  name: string;
+  href: string;
+  description: string;
+};
+
+type ProjectStudio = {
+  name: string;
+  href?: string;
+  description: string;
+  children: ProjectChild[];
+};
+
+const projects: ProjectStudio[] = [
   {
     name: 'Keystone Lab',
     href: 'https://keystonelab.ai',
-    description: 'Product lab. Panora and Kampawng live here.',
+    description:
+      'A product studio based in Singapore, the team spun off from Fortify Labs to focus on what we love doing most, which is shipping products that people love. We build on our experience helping founders in the past.',
+    children: [
+      {
+        name: 'Panora',
+        href: 'https://panora.keystonelab.ai',
+        description:
+          'A meeting note-taker that gives users strong privacy guarantees without requiring another device.',
+      },
+      {
+        name: 'Kampawng',
+        href: 'https://kampawng.com',
+        description: 'A pet health and wellness log. Still early.',
+      },
+    ],
   },
   {
-    name: 'Panora',
-    href: 'https://panora.keystonelab.ai',
-    description: 'Private AI notes for meetings and conversations.',
-  },
-  {
-    name: 'DX Gaming Nation',
-    href: 'https://dxgamingnation.app',
-    description: 'Book a PS5, VR, or sim-racing session.',
-  },
-  {
-    name: 'Kira',
-    href: 'https://trykira.xyz',
-    description: 'Split a receipt.',
-  },
-  {
-    name: 'TaxFind',
-    href: 'https://tax-find.vercel.app',
-    description: 'A Malaysian tax helper.',
+    name: 'Entropic Labs',
+    description:
+      'My personal product studio and consultancy for internet products, experiments, and bespoke builds.',
+    children: [
+      {
+        name: 'DX Gaming',
+        href: 'https://dxgamingnation.app',
+        description:
+          'A neighbourhood gaming cafe based in Ampang. We helped build a web app so their customers can book and pay. The owner can see what was booked and what actually got paid.',
+      },
+      {
+        name: 'Kira',
+        href: 'https://trykira.xyz',
+        description: 'Receipt splitting for group meals. Scan a receipt, share a link, let friends claim their items.',
+      },
+      {
+        name: 'TaxFind',
+        href: 'https://taxfind.my',
+        description: 'A Malaysian tax helper for finding deductions and keeping receipts audit-ready.',
+      },
+    ],
   },
 ];
 
@@ -113,15 +143,25 @@ const thoughts = [
       <p class="section-description">Selected work and current experiments.</p>
     </div>
 
-    <ul class="thinking-list">
-      {projects.map((project) => (
-        <li class="thinking-item">
-          {project.href ? (
-            <a class="elsewhere-label" href={project.href} target="_blank" rel="noreferrer">{project.name}</a>
-          ) : (
-            <span class="elsewhere-label">{project.name}</span>
-          )}
-          <span>{project.description}</span>
+    <ul class="project-list">
+      {projects.map((studio) => (
+        <li class="project-studio">
+          <div class="project-entry">
+            {studio.href ? (
+              <a class="project-name" href={studio.href} target="_blank" rel="noreferrer">{studio.name}</a>
+            ) : (
+              <span class="project-name">{studio.name}</span>
+            )}
+            <p class="project-copy">{studio.description}</p>
+          </div>
+          <ul class="project-children">
+            {studio.children.map((child) => (
+              <li class="project-entry">
+                <a class="project-name" href={child.href} target="_blank" rel="noreferrer">{child.name}</a>
+                <p class="project-copy">{child.description}</p>
+              </li>
+            ))}
+          </ul>
         </li>
       ))}
     </ul>

@@ -23,7 +23,7 @@ If you are an agent working in this repo:
 | P1 | Astro scaffold + first-pass homepage | done | Astro project boots locally, custom domain preserved, homepage exists in Astro |
 | P2 | Writing collection + routes | done | Markdown essays render on `/writing` and `/writing/[slug]` |
 | P3 | Pixel-close homepage refinement | pending | Homepage spacing/type/layout feels much closer to `design/reference/reference-homepage.jpg` |
-| P4 | Real content pass | in progress | Homepage bio, links, footer, and public writing state are truthful enough for social links. Public Projects list is locked to Keystone Lab, Panora, DX Gaming Nation, Kira, and TaxFind. Final first essay still pending. |
+| P4 | Real content pass | in progress | Homepage bio, links, footer, and public writing state are truthful enough for social links. Public Projects list is two parent studios with nested children: Keystone Lab (Panora, Kampawng) and Entropic Labs (DX Gaming, Kira, TaxFind). Final first essay still pending. |
 | P5 | GitHub Pages deploy via Actions | done | Pages builds from GitHub Actions with `CNAME` preserved |
 | P6 | Optional publishing polish | pending | RSS, sitemap, stronger OG/share image, final 404 polish |
 
@@ -62,6 +62,6 @@ A task is only done when:
 
 ## Open questions
 
-- The homepage now includes a locked public `Projects` list. Keep that list as-is unless Imran changes the approved set.
+- The homepage now includes a nested public `Projects` list. Keep that hierarchy and copy as-is unless Imran changes the approved set.
 - Should essays default to `draft` unless explicitly marked ready to publish?
 - When the redesign is approved, do we cut over by merging `redesign-astro` into `main`, or by replacing `main` via a clean PR?
