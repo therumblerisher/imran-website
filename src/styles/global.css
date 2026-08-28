@@ -209,7 +209,9 @@ img {
 
 .writing-list,
 .elsewhere-list,
-.thinking-list {
+.thinking-list,
+.project-list,
+.project-children {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -258,9 +260,54 @@ img {
 }
 
 .elsewhere-list,
-.thinking-list {
+.thinking-list,
+.project-list,
+.project-children {
   display: grid;
   gap: 0.75rem;
+}
+
+.project-list {
+  gap: 1.5rem;
+}
+
+.project-studio {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-entry {
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.project-name {
+  color: var(--text);
+}
+
+.project-children .project-name {
+  color: var(--muted);
+}
+
+a.project-name {
+  text-decoration: none;
+}
+
+a.project-name:hover {
+  color: var(--accent);
+}
+
+.project-copy {
+  margin: 0;
+}
+
+.project-children {
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  list-style: none;
+  border-left: 1px solid var(--line-strong);
 }
 
 .elsewhere-item,
@@ -400,8 +447,14 @@ img {
   .section-header,
   .writing-item,
   .elsewhere-item,
-  .thinking-item {
+  .thinking-item,
+  .project-entry {
     grid-template-columns: 1fr;
+  }
+
+  .project-children {
+    padding-left: 1.15rem;
+    margin-left: 0.15rem;
   }
 
   .section-header {
