@@ -26,9 +26,11 @@ Use this structure as the baseline:
 
 - name
 - intro
-- writing
+- writing (shown once essays are published)
+- projects
+- currently using
+- currently exploring
 - elsewhere
-- currently thinking
 - footer/contact
 
 ## Canonical identity/contact info
@@ -36,9 +38,12 @@ Use this structure as the baseline:
 Use these real details:
 
 - Name: `Imran Haqeem`
-- Tagline: `I build software products and write about the economics of everyday life in Malaysia.`
-- X handle: `therumblerisher`
-- X URL: `https://x.com/therumblerisher`
+- Tagline: `Product engineer in Kuala Lumpur building full-stack web apps and Malaysian AI tools.`
+- GitHub handle: `therumblerisher`
+- GitHub URL: `https://github.com/therumblerisher`
+- LinkedIn URL: `https://linkedin.com/in/imranrazli`
+- X handle: `inf42__`
+- X URL: `https://x.com/inf42__`
 - Email: `imranhq957@gmail.com`
 - Domain: `imranhaqeem.xyz`
 
@@ -67,11 +72,11 @@ Each essay should include frontmatter like:
 
 ## Initial content seed
 
-Start with a few believable draft essays such as:
+Focus Stage 2 technical posts on real engineering work:
 
-- `Why kopi is still underpriced`
-- `The hidden cost of Grab convenience`
-- `What rent teaches you about a city`
+- Receipt verification and fallback routing on YTL ILMU (Kira)
+- Hybrid tender RAG with pgvector and Spend Caps (Tender OS)
+- Running Inkling 2 Mini locally on a 12 GB GPU with Strata and llama.cpp
 
 ## Implementation notes
 

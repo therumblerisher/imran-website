@@ -11,10 +11,8 @@ If you are an agent working in this repo:
 
 ## Branch policy
 
-- `main` = currently live production site
-- `redesign-astro` = active rebuild branch
-- feature branches are optional, but any redesign work should merge back into `redesign-astro` until cutover
-- do **not** push a redesign directly to `main` unless explicitly asked
+- `main` = currently live production site and only active branch (`redesign-astro` was superseded and merged)
+- do **not** push changes directly to `main` without Imran's approval
 
 ## Product roadmap
 
@@ -23,7 +21,7 @@ If you are an agent working in this repo:
 | P1 | Astro scaffold + first-pass homepage | done | Astro project boots locally, custom domain preserved, homepage exists in Astro |
 | P2 | Writing collection + routes | done | Markdown essays render on `/writing` and `/writing/[slug]` |
 | P3 | Pixel-close homepage refinement | pending | Homepage spacing/type/layout feels much closer to `design/reference/reference-homepage.jpg` |
-| P4 | Real content pass | in progress | Homepage bio, links, footer, and public writing state are truthful enough for social links. Public Projects list is two parent studios with nested children: Keystone Lab (Panora, Kampawng) and Entropic Labs (DX Gaming, Kira, TaxFind). Final first essay still pending. |
+| P4 | Real content pass | in progress | Homepage bio, links, footer, and projects refreshed for job hunt. Projects list covers Entropic Labs (Kira, Tender OS, DX Gaming Nation, TaxFind) and TZ APAC (Panora, Sogni), plus Currently using and Currently exploring. Old economics drafts removed; Stage 2 technical writing pending. |
 | P5 | GitHub Pages deploy via Actions | done | Pages builds from GitHub Actions with `CNAME` preserved |
 | P6 | Optional publishing polish | pending | RSS, sitemap, stronger OG/share image, final 404 polish |
 
@@ -39,17 +37,16 @@ If you are an agent working in this repo:
 ## Content backlog
 
 ### High-priority
-- tighten the homepage so it matches the design reference more closely
-- confirm whether the updated intro copy and tagline feel like Imran
-- confirm whether `Elsewhere` should include anything beyond X, GitHub, and email
-- decide whether `Projects` and `About` deserve dedicated routes later or stay implicit for now
+- publish deep technical write-ups on shipped projects and local AI experiments
+- keep `Currently using` and `Currently exploring` current with active work
+- move hosting to Cloudflare Pages before renaming or making the GitHub repository private
 
 ### Writing backlog
-- turn the minimum participation income draft into the first published essay
-- expand `Why kopi is still underpriced`
-- expand `The hidden cost of Grab convenience`
-- expand `What rent teaches you about a city`
-- add more notes on Malaysian daily life economics only when they feel believable and specific
+- `Building on YTL ILMU`: receipt verification, fallback routing, and hybrid tender RAG lessons from Kira and Tender OS
+- `Inkling 2 Mini on a 12 GB GPU`: Strata vs llama.cpp measurements, context limits, and MCP web search
+- `DX Gaming Nation`: booking, QR check-in, and HitPay webhook architecture for a daily-use KL venue
+- `Panora on-device iOS lessons`: long-meeting context limits and peak memory reduction without confidential details
+- `Daily setup`: Omarchy, Herdr, Rex, Claude Code, and the local markdown wiki
 
 ## Definition of done for any agent task
 
@@ -62,6 +59,5 @@ A task is only done when:
 
 ## Open questions
 
-- The homepage now includes a nested public `Projects` list. Keep that hierarchy and copy as-is unless Imran changes the approved set.
 - Should essays default to `draft` unless explicitly marked ready to publish?
-- When the redesign is approved, do we cut over by merging `redesign-astro` into `main`, or by replacing `main` via a clean PR?
+- When moving to Cloudflare Pages, keep `public/CNAME` or retire GitHub Pages deploy workflow?

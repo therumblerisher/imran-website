@@ -291,6 +291,10 @@ img {
   color: var(--muted);
 }
 
+.project-children a.project-name {
+  color: var(--text);
+}
+
 a.project-name {
   text-decoration: none;
 }

@@ -18,8 +18,10 @@ Always check these first before making visual or structural changes:
 ## Canonical identity
 
 - Name: `Imran Haqeem`
-- Tagline: `I build software products and write about the economics of everyday life in Malaysia.`
-- X URL: `https://x.com/therumblerisher`
+- Tagline: `Product engineer in Kuala Lumpur building full-stack web apps and Malaysian AI tools.`
+- GitHub URL: `https://github.com/therumblerisher`
+- LinkedIn URL: `https://linkedin.com/in/imranrazli`
+- X URL: `https://x.com/inf42__`
 - Email: `imranhq957@gmail.com`
 - Domain: `imranhaqeem.xyz`
 

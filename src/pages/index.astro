@@ -14,14 +14,19 @@ const formatDate = (date: Date) =>
 
 const elsewhere = [
   {
-    label: 'X',
-    value: '@therumblerisher',
-    href: 'https://x.com/therumblerisher',
-  },
-  {
     label: 'GitHub',
     value: 'therumblerisher',
     href: 'https://github.com/therumblerisher',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'imranrazli',
+    href: 'https://linkedin.com/in/imranrazli',
+  },
+  {
+    label: 'X',
+    value: '@inf42__',
+    href: 'https://x.com/inf42__',
   },
   {
     label: 'Email',
@@ -32,7 +37,7 @@ const elsewhere = [
 
 type ProjectChild = {
   name: string;
-  href: string;
+  href?: string;
   description: string;
 };
 
@@ -45,53 +50,103 @@ type ProjectStudio = {
 
 const projects: ProjectStudio[] = [
   {
-    name: 'Keystone Lab',
-    href: 'https://keystonelab.ai',
+    name: 'Entropic Labs',
     description:
-      'A product studio based in Singapore, the team spun off from Fortify Labs to focus on what we love doing most, which is shipping products that people love. We build on our experience helping founders in the past.',
+      'My personal studio for full-stack web apps and Malaysian AI products.',
     children: [
       {
-        name: 'Panora',
-        href: 'https://panora.keystonelab.ai',
+        name: 'Kira',
+        href: 'https://trykira.xyz',
         description:
-          'A meeting note-taker that gives users strong privacy guarantees without requiring another device.',
+          'Multiplayer receipt splitter built on YTL ILMU and Cloudflare Workers. Snap a receipt, share a link, and let friends claim items. Verifies line-item math against the printed total in code and falls back to a larger model on mismatch.',
       },
       {
-        name: 'Kampawng',
-        href: 'https://kampawng.com',
-        description: 'A pet health and wellness log. Still early.',
+        name: 'Tender OS',
+        href: 'https://github.com/therumblerisher/tender-os',
+        description:
+          'Open-source hybrid search and grounded Q&A over 6,899 Malaysian public tender notices. Built with FastAPI, PostgreSQL pgvector, and YTL ILMU embeddings with source citations and daily Ringgit spend caps.',
+      },
+      {
+        name: 'DX Gaming Nation',
+        href: 'https://dxgamingnation.app',
+        description:
+          'Booking, QR check-in, session timers, and HitPay payments web app in daily paid use at a gaming venue in Kuala Lumpur.',
+      },
+      {
+        name: 'TaxFind',
+        description:
+          'AI tax-relief finder for YA2025 that mapped Malaysian bank-statement PDFs into 15 LHDN categories. Backend retired.',
       },
     ],
   },
   {
-    name: 'Entropic Labs',
+    name: 'TZ APAC',
     description:
-      'My personal product studio and consultancy for internet products, experiments, and bespoke builds.',
+      'Over five years running founder programs, grants, and Fortify Labs, our startup studio, alongside product work at Keystone Lab.',
     children: [
       {
-        name: 'DX Gaming',
-        href: 'https://dxgamingnation.app',
+        name: 'Panora',
         description:
-          'A neighbourhood gaming cafe based in Ampang. We helped build a web app so their customers can book and pay. The owner can see what was booked and what actually got paid.',
+          'On-device iOS AI meeting notebook from Keystone Lab. Contributed product design and code across long-meeting note generation, iPhone memory limits, and UI.',
       },
       {
-        name: 'Kira',
-        href: 'https://trykira.xyz',
-        description: 'Receipt splitting for group meals. Scan a receipt, share a link, let friends claim their items.',
-      },
-      {
-        name: 'TaxFind',
-        href: 'https://taxfind.my',
-        description: 'A Malaysian tax helper for finding deductions and keeping receipts audit-ready.',
+        name: 'Sogni',
+        href: 'https://www.sogni.ai',
+        description:
+          'Decentralized GPU compute network for creative AI and my favorite Fortify Labs portfolio company. Backed their seed round and supported the team through their Kraken listing.',
       },
     ],
   },
 ];
 
-const thoughts = [
-  'What it actually costs to participate in modern KL life, not just survive it.',
-  'How to close the gap between building good products and getting people to care.',
-  'What small teams can realistically delegate to AI agents without creating more work.',
+type UsingItem = {
+  name: string;
+  href?: string;
+  description: string;
+};
+
+const usingItems: UsingItem[] = [
+  {
+    name: 'Omarchy',
+    href: 'https://omarchy.org',
+    description: 'Arch Linux desktop environment on my main workstation.',
+  },
+  {
+    name: 'Herdr',
+    description: 'Desktop workspace for running parallel coding agents across separate project spaces.',
+  },
+  {
+    name: 'Rex',
+    description: 'Terminal multiplexer for managing live sessions, panes, and connected tools.',
+  },
+  {
+    name: 'Claude Code',
+    description: 'Daily coding agent workflow with isolated git worktrees and cross-model review.',
+  },
+  {
+    name: 'Personal wiki',
+    description: 'Local markdown knowledge base maintained with agents for model notes, benchmarks, and tooling research.',
+  },
+];
+
+type ExploringItem = {
+  label: string;
+  text: string;
+};
+
+const exploringItems: ExploringItem[] = [
+  {
+    label: 'Local AI',
+    text: 'Running Inkling 2 Mini locally on an RTX 5070 12 GB with Strata and llama.cpp, testing decode speed, context limits, and MCP web search.',
+  },
+  {
+    label: 'Model routing',
+    text: 'Verifying LLM outputs in code so fast, cheap models stay reliable on Malaysian documents and escalate only on mismatch.',
+  },
+  {
+    label: 'Agent workflows',
+    text: 'What small teams can delegate to coding agents with automated tests and visual checks instead of guesswork.',
+  },
 ];
 ---
 
@@ -99,29 +154,35 @@ const thoughts = [
   <header class="home-header" id="top">
     <p class="eyebrow">Imran Haqeem</p>
     <h1 class="site-title">Imran Haqeem</h1>
-    <p class="lede">I build software products and write about the economics of everyday life in Malaysia.</p>
+    <p class="lede">Product engineer in Kuala Lumpur building full-stack web apps and Malaysian AI tools.</p>
     <p class="intro">
-      I work on product at Keystone Lab, build my own things under Entropic Labs, and use this site as the public notebook for what I’m learning along the way.
+      I build web apps and AI software under Entropic Labs, my personal studio. At TZ APAC, I have spent over five years running founder programs and Fortify Labs, and contributed product design and code to Panora, an on-device iOS AI meeting app.
     </p>
 
     <nav class="section-nav" aria-label="Section navigation">
-      <a href="#writing">Writing</a>
-      <span aria-hidden="true">•</span>
+      {writing.length > 0 && (
+        <>
+          <a href="#writing">Writing</a>
+          <span aria-hidden="true">•</span>
+        </>
+      )}
       <a href="#projects">Projects</a>
       <span aria-hidden="true">•</span>
-      <a href="#thinking">Currently thinking</a>
+      <a href="#using">Currently using</a>
+      <span aria-hidden="true">•</span>
+      <a href="#exploring">Currently exploring</a>
       <span aria-hidden="true">•</span>
       <a href="#elsewhere">Elsewhere</a>
     </nav>
   </header>
 
-  <section class="section" id="writing" aria-labelledby="writing-title">
-    <div class="section-header">
-      <h2 class="section-title" id="writing-title">Writing</h2>
-      <a class="section-link" href="/writing/">Full archive</a>
-    </div>
+  {writing.length > 0 && (
+    <section class="section" id="writing" aria-labelledby="writing-title">
+      <div class="section-header">
+        <h2 class="section-title" id="writing-title">Writing</h2>
+        <a class="section-link" href="/writing/">Full archive</a>
+      </div>
 
-    {writing.length > 0 ? (
       <ol class="writing-list">
         {writing.map((entry) => (
           <li class="writing-item">
@@ -132,15 +193,13 @@ const thoughts = [
           </li>
         ))}
       </ol>
-    ) : (
-      <p class="empty-note">First essay coming soon. Probably something unreasonably specific about money, taste, and daily life in Malaysia.</p>
-    )}
-  </section>
+    </section>
+  )}
 
   <section class="section" id="projects" aria-labelledby="projects-title">
     <div class="section-header">
       <h2 class="section-title" id="projects-title">Projects</h2>
-      <p class="section-description">Selected work and current experiments.</p>
+      <p class="section-description">Shipped products and studio work.</p>
     </div>
 
     <ul class="project-list">
@@ -157,7 +216,11 @@ const thoughts = [
           <ul class="project-children">
             {studio.children.map((child) => (
               <li class="project-entry">
-                <a class="project-name" href={child.href} target="_blank" rel="noreferrer">{child.name}</a>
+                {child.href ? (
+                  <a class="project-name" href={child.href} target="_blank" rel="noreferrer">{child.name}</a>
+                ) : (
+                  <span class="project-name">{child.name}</span>
+                )}
                 <p class="project-copy">{child.description}</p>
               </li>
             ))}
@@ -167,17 +230,37 @@ const thoughts = [
     </ul>
   </section>
 
-  <section class="section" id="thinking" aria-labelledby="thinking-title">
+  <section class="section" id="using" aria-labelledby="using-title">
     <div class="section-header">
-      <h2 class="section-title" id="thinking-title">Currently thinking</h2>
-      <p class="section-description">Questions worth keeping in view.</p>
+      <h2 class="section-title" id="using-title">Currently using</h2>
+      <p class="section-description">Daily tools and workflow.</p>
     </div>
 
     <ul class="thinking-list">
-      {thoughts.map((thought) => (
+      {usingItems.map((item) => (
         <li class="thinking-item">
-          <span class="elsewhere-label">Note</span>
-          <span>{thought}</span>
+          {item.href ? (
+            <a class="project-name" href={item.href} target="_blank" rel="noreferrer">{item.name}</a>
+          ) : (
+            <span class="elsewhere-label">{item.name}</span>
+          )}
+          <span>{item.description}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="section" id="exploring" aria-labelledby="exploring-title">
+    <div class="section-header">
+      <h2 class="section-title" id="exploring-title">Currently exploring</h2>
+      <p class="section-description">Active experiments and topics in view.</p>
+    </div>
+
+    <ul class="thinking-list">
+      {exploringItems.map((item) => (
+        <li class="thinking-item">
+          <span class="elsewhere-label">{item.label}</span>
+          <span>{item.text}</span>
         </li>
       ))}
     </ul>
@@ -186,7 +269,7 @@ const thoughts = [
   <section class="section" id="elsewhere" aria-labelledby="elsewhere-title">
     <div class="section-header">
       <h2 class="section-title" id="elsewhere-title">Elsewhere</h2>
-      <p class="section-description">A few places I live online.</p>
+      <p class="section-description">Where to find me online.</p>
     </div>
 
     <ul class="elsewhere-list">
@@ -203,8 +286,9 @@ const thoughts = [
 
   <footer class="footer">
     <p>
-      Reach me at <a href="mailto:imranhq957@gmail.com">imranhq957@gmail.com</a> or on
-      <a href="https://x.com/therumblerisher" target="_blank" rel="noreferrer">X</a>.
+      Reach me at <a href="mailto:imranhq957@gmail.com">imranhq957@gmail.com</a>,
+      on <a href="https://linkedin.com/in/imranrazli" target="_blank" rel="noreferrer">LinkedIn</a>,
+      or on <a href="https://x.com/inf42__" target="_blank" rel="noreferrer">X</a>.
     </p>
   </footer>
 </BaseLayout>
