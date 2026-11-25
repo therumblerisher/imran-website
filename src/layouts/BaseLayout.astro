@@ -18,6 +18,11 @@ const themeBootScript = `(function(){
     var stored = localStorage.getItem('theme');
     if (stored === 'light' || stored === 'dark') {
       document.documentElement.dataset.theme = stored;
+      var color = stored === 'dark' ? '#161210' : '#f6f1e8';
+      var metas = document.querySelectorAll('meta[name="theme-color"]');
+      for (var i = 0; i < metas.length; i++) {
+        metas[i].setAttribute('content', color);
+      }
     }
   } catch (error) {}
 })();`;
@@ -30,6 +35,14 @@ const themeToggleScript = `(function(){
 
   function currentTheme() {
     return document.documentElement.dataset.theme || (media.matches ? 'dark' : 'light');
+  }
+
+  function syncThemeColor(theme) {
+    var color = theme === 'dark' ? '#161210' : '#f6f1e8';
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    for (var i = 0; i < metas.length; i++) {
+      metas[i].setAttribute('content', color);
+    }
   }
 
   function syncButton() {
@@ -45,6 +58,7 @@ const themeToggleScript = `(function(){
     try {
       localStorage.setItem('theme', next);
     } catch (error) {}
+    syncThemeColor(next);
     syncButton();
   });
 
@@ -62,10 +76,11 @@ const themeToggleScript = `(function(){
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#f6f1e8" />
+    <meta name="theme-color" content="#f6f1e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#161210" media="(prefers-color-scheme: dark)" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />

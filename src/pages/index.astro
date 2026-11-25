@@ -152,7 +152,6 @@ const exploringItems: ExploringItem[] = [
 
 <BaseLayout>
   <header class="home-header" id="top">
-    <p class="eyebrow">Imran Haqeem</p>
     <h1 class="site-title">Imran Haqeem</h1>
     <p class="lede">Product engineer in Kuala Lumpur building full-stack web apps and Malaysian AI tools.</p>
     <p class="intro">
@@ -160,19 +159,15 @@ const exploringItems: ExploringItem[] = [
     </p>
 
     <nav class="section-nav" aria-label="Section navigation">
-      {writing.length > 0 && (
-        <>
-          <a href="#writing">Writing</a>
-          <span aria-hidden="true">•</span>
-        </>
-      )}
-      <a href="#projects">Projects</a>
-      <span aria-hidden="true">•</span>
-      <a href="#using">Currently using</a>
-      <span aria-hidden="true">•</span>
-      <a href="#exploring">Currently exploring</a>
-      <span aria-hidden="true">•</span>
-      <a href="#elsewhere">Elsewhere</a>
+      <ul class="section-nav-list">
+        {writing.length > 0 && (
+          <li><a href="#writing">Writing</a></li>
+        )}
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#using">Using</a></li>
+        <li><a href="#exploring">Exploring</a></li>
+        <li><a href="#elsewhere">Elsewhere</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -240,11 +235,11 @@ const exploringItems: ExploringItem[] = [
       {usingItems.map((item) => (
         <li class="thinking-item">
           {item.href ? (
-            <a class="project-name" href={item.href} target="_blank" rel="noreferrer">{item.name}</a>
+            <a class="item-label" href={item.href} target="_blank" rel="noreferrer">{item.name}</a>
           ) : (
-            <span class="elsewhere-label">{item.name}</span>
+            <span class="item-label">{item.name}</span>
           )}
-          <span>{item.description}</span>
+          <span class="item-copy">{item.description}</span>
         </li>
       ))}
     </ul>
@@ -259,8 +254,8 @@ const exploringItems: ExploringItem[] = [
     <ul class="thinking-list">
       {exploringItems.map((item) => (
         <li class="thinking-item">
-          <span class="elsewhere-label">{item.label}</span>
-          <span>{item.text}</span>
+          <span class="item-label">{item.label}</span>
+          <span class="item-copy">{item.text}</span>
         </li>
       ))}
     </ul>
