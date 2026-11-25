@@ -18,8 +18,7 @@ The goal is a quiet editorial homepage with lightweight writing workflows:
 ## Canonical profile info
 
 - Name: `Imran Haqeem`
-- Tagline: `I build software products and write about the economics of everyday life in Malaysia.`
-- X: `https://x.com/therumblerisher`
+- Tagline: `Product engineer in Kuala Lumpur building full-stack web apps and Malaysian AI tools.`
 - Email: `imranhq957@gmail.com`
 - Domain: `imranhaqeem.xyz`
 
